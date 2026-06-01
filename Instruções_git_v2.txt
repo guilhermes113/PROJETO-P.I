@@ -1,0 +1,14 @@
+  git config --global user.email guilhermesanches248@gmail.com
+  git config --global user.name guilhermes113
+
+git remote add origin https://github.com/guilhermes113/PROJETO-PIgit
+
+ git branch -M main 
+git push -u origin main
+
+git init 
+git add README.md 
+git commit -m "primeiro commit" 
+git branch -M main 
+git remote add origin https://github.com/guilhermes113/PROJETO-PIgit
+ git push -u origin main

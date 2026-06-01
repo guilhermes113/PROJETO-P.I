@@ -1,0 +1,93 @@
+Rodar ONLINE 
+
+Buscando informações do projeto para orientar o deploy online.
+
+Read [](file:///h%3A/Projeto-P.I/G.E.M/APP/README.md)
+
+Read [](file:///h%3A/Projeto-P.I/G.E.M/APP/frontend/README.md)
+
+Confirmando a estrutura do backend e os arquivos de servidor para indicar o melhor caminho de deploy.
+
+Read [](file:///h%3A/Projeto-P.I/G.E.M/APP/backend)
+
+Read [](file:///h%3A/Projeto-P.I/G.E.M/APP/backend/server.py#1-1), lines 1 to 200
+
+Read [](file:///h%3A/Projeto-P.I/G.E.M/APP/backend/requirements.txt)
+
+Pegando as variáveis de ambiente e o tipo de banco para fechar as recomendações de deploy.
+
+Read [](file:///h%3A/Projeto-P.I/G.E.M/APP/backend/.env)
+
+Read [](file:///h%3A/Projeto-P.I/G.E.M/APP/frontend/.env)
+
+## Como subir online
+
+O seu projeto é um app fullstack:
+- `backend/` = Flask + SQLite
+- `frontend/` = React (Create React App)
+
+### 1. Preparar localmente
+Backend:
+- `cd APP/backend`
+- criar virtualenv: `python -m venv venv`
+- ativar: `venv\Scripts\activate`
+- instalar: `pip install -r requirements.txt`
+- rodar: `python server.py`
+
+Frontend:
+- `cd APP/frontend`
+- instalar: `npm install`
+- testar: `npm start`
+- build para produção: `npm run build`
+
+---
+
+## 2. Onde subir
+
+### Opção recomendada: Railway / Render / Heroku
+Esses serviços suportam backend Flask e dão domínio HTTPS.
+
+Backend:
+- crie um serviço Python
+- configure o comando de start: `python server.py`
+- coloque variáveis de ambiente no painel (`CORS_ORIGINS`, `MONGO_URL`, `DB_NAME`, etc.)
+- garanta que o arquivo `music_school.db` seja persistente ou use um banco em nuvem se precisar de dados duráveis
+
+Frontend:
+- crie um serviço separado em Vercel / Netlify / Railway static
+- faça deploy a partir da pasta frontend
+- no Vercel/Netlify, o build automático detecta Create React App
+
+---
+
+## 3. Configurar a URL do backend
+No .env você já tem:
+- `REACT_APP_BACKEND_URL=https://ritmo-portal-1.preview.emergentagent.com`
+
+Isso precisa apontar para a URL do seu backend depois de publicado:
+- ex: `REACT_APP_BACKEND_URL=https://meu-backend.onrender.com`
+
+Depois disso:
+- rebuild do frontend: `npm run build`
+- reaproveite o deploy na plataforma de hospedagem
+
+---
+
+## 4. Se quiser tudo junto em um só lugar
+Você pode também:
+- hospedar somente o frontend em Vercel/Netlify
+- hospedar o backend em Railway/Render
+- e usar a URL do backend no frontend
+
+> Nota: o backend usa SQLite (`music_school.db`), então para produção é melhor escolher um host com armazenamento de arquivos persistente ou migrar para um banco externo.
+
+---
+
+## Resumo rápido
+1. Teste local: `python backend/server.py` + `npm start`
+2. Faça build do React: `npm run build`
+3. Publique backend em plataforma Python
+4. Publique frontend em Vercel/Netlify ou como estático
+5. Ajuste `REACT_APP_BACKEND_URL` para o endereço real do backend
+
+Se quiser, posso te ajudar a escolher uma plataforma e criar os arquivos de deploy necessários (`Procfile`, `Dockerfile`, etc.).

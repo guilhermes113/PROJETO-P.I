@@ -1,0 +1,44 @@
+SUBIR LOCAL
+
+## Testar localmente na sua máquina
+
+### 1) Rodar o backend Flask
+1. Abra um terminal em backend
+2. Crie e ative um virtualenv:
+   - `python -m venv venv`
+   - `venv\Scripts\activate`
+3. Instale dependências:
+   - `pip install -r requirements.txt`
+4. Inicie o servidor:
+   - `python server.py`
+
+O backend deve ficar disponível em `http://localhost:5000`.
+
+---
+
+### 2) Rodar o frontend React
+1. Abra outro terminal em frontend
+2. Instale dependências:
+   - `npm install`
+3. Inicie o app:
+   - `npm start`
+
+O frontend abre em `http://localhost:3000`.
+
+---
+
+### 3) Ajuste para testar local
+No arquivo .env, altere a URL do backend para apontar ao seu servidor local:
+- `REACT_APP_BACKEND_URL=http://localhost:5000`
+
+Assim o frontend usa o backend que você rodou na sua máquina.
+
+---
+
+### 4) Como testar
+- Backend: abra `http://localhost:5000` ou faça requisições API no Postman
+- Frontend: abra `http://localhost:3000`
+
+> Se aparecer erro de CORS, o backend já tem `flask-cors` configurado para `/api/*`, então deve funcionar normalmente.
+
+Se quiser, posso te ajudar a verificar se o frontend está usando corretamente `REACT_APP_BACKEND_URL` ou configurar o `npm start` direto.

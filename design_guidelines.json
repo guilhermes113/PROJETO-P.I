@@ -1,0 +1,110 @@
+{
+  "theme": "dark",
+  "archetype": "Archetype 5 (Luxury / Cinematic Depth) blended with Archetype 4 (Swiss/High-Contrast) for dashboard density",
+  "domain": "Music School Management System (Admin & Teacher Dashboard)",
+  "colors": {
+    "background": "#090412",
+    "surface": "#1A0B2E",
+    "surface_hover": "#2A1646",
+    "border": "rgba(255, 255, 255, 0.08)",
+    "primary": "#FFB800",
+    "primary_hover": "#FFC933",
+    "primary_text": "#F4F0FA",
+    "secondary_text": "#A291B5",
+    "success": "#10B981",
+    "error": "#EF4444",
+    "warning": "#F59E0B"
+  },
+  "typography": {
+    "fonts": {
+      "headings": "Cabinet Grotesk, sans-serif",
+      "body": "IBM Plex Sans, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "scale": {
+      "h1": "text-4xl sm:text-5xl tracking-tight font-black text-[#F4F0FA]",
+      "h2": "text-2xl sm:text-3xl tracking-tight font-bold text-[#F4F0FA]",
+      "h3": "text-xl font-semibold text-[#F4F0FA]",
+      "body": "text-base text-[#F4F0FA] leading-relaxed",
+      "small": "text-sm text-[#A291B5]",
+      "overline": "text-xs uppercase tracking-[0.2em] text-[#A291B5] font-semibold"
+    },
+    "rules": [
+      "No generic sans (Inter/Roboto) for headings. Use Cabinet Grotesk.",
+      "Never center-align standard dashboard text. Keep left-aligned for scannability.",
+      "Ensure contrast ratio is minimum 4.5:1."
+    ]
+  },
+  "spacing_and_layout": {
+    "grid_system": "MODE B: THE CONTROL ROOM GRID",
+    "general_spacing": "Dense but readable. Use p-6 or p-8 for main cards. gap-4 or gap-6 for dashboard bento grids.",
+    "page_structure": "Left compact sidebar (w-64) for navigation, with main content area scaling responsive (grid-cols-1 md:grid-cols-3 lg:grid-cols-4).",
+    "card_padding": "p-6",
+    "rules": [
+      "Every pixel utilized, h-full on grid children to match neighbor heights.",
+      "Mobile-first: default to grid-cols-1 on small screens.",
+      "Always include pt-[header-height] if using sticky/fixed headers."
+    ]
+  },
+  "surface_strategies": {
+    "cards": "Grid Borders & Crystal Glass. bg-[#1A0B2E]/60 backdrop-blur-xl border border-white/10. No aggressive drop shadows.",
+    "sidebar": "Solid dark background bg-[#090412] with a sharp right border border-white/10.",
+    "modals": "Glassmorphism overlay bg-black/80 backdrop-blur-sm. Modal surface pure bg-[#1A0B2E] with border border-white/10."
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-[#FFB800] text-[#090412] font-semibold hover:bg-[#FFC933] transition-colors rounded-none",
+      "secondary": "bg-transparent border border-white/20 text-[#F4F0FA] hover:bg-white/5 transition-colors rounded-none",
+      "ghost": "bg-transparent text-[#A291B5] hover:text-[#F4F0FA] hover:bg-white/5 transition-colors rounded-none"
+    },
+    "inputs": "Shadcn standard but customized: bg-[#090412] border-white/10 text-[#F4F0FA] focus:border-[#FFB800] focus:ring-1 focus:ring-[#FFB800] rounded-none",
+    "tables": "Shadcn table. Header text overline style (text-xs uppercase tracking-widest text-[#A291B5]). Rows have hover:bg-white/5.",
+    "badges": "Flat background with high contrast text. e.g., bg-[#FFB800]/20 text-[#FFB800].",
+    "shadcn_overrides": [
+      "Use flat/rectangular geometry (rounded-none or max rounded-sm).",
+      "Customize dropdowns and selects to match the midnight purple background.",
+      "Use Shadcn calendar for class scheduling."
+    ]
+  },
+  "motion": {
+    "hover": "Subtle background color shifts and border highlights. No bouncing.",
+    "transitions": "transition-colors duration-200 ease-in-out",
+    "page_load": "Staggered fade-up for dashboard widgets (framer-motion if available, or simple CSS keyframes)."
+  },
+  "icons": {
+    "library": "@phosphor-icons/react",
+    "style": "Duotone or Regular weight. Size 20px or 24px."
+  },
+  "image_urls": [
+    {
+      "category": "background",
+      "url": "https://static.prod-images.emergentagent.com/jobs/c970e575-bb63-4630-ad0a-d71c4d19a90b/images/1cb247c39f4ee71f9ae79ae4b8e68b8feba025a608bdf4df9a899312bf8e9ff4.png",
+      "description": "Abstract midnight purple background texture, subtle velvet-like dark gradient with very fine film grain. Use for login page background or empty states."
+    },
+    {
+      "category": "hero/ambience",
+      "url": "https://images.unsplash.com/photo-1512733596533-7b00ccf8ebaf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTN8MHwxfHNlYXJjaHwyfHxkYXJrJTIwbXVzaWMlMjBwaWFub3xlbnwwfHx8fDE3Nzk4NDAwOTd8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Dark music piano keys. Use for decorative banners or dashboard greeting section."
+    },
+    {
+      "category": "teacher_placeholder",
+      "url": "https://images.pexels.com/photos/7521299/pexels-photo-7521299.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "A teacher instructs a student in musical notation. Use for teacher profiles or onboarding."
+    }
+  ],
+  "accessibility_and_testing": {
+    "contrast": "Ensure all text passes APCA/WCAG standards against the #1A0B2E surfaces.",
+    "testing_attributes": "All interactive elements MUST have data-testid. Examples: data-testid='login-button', data-testid='create-class-button', data-testid='teacher-row-actions', data-testid='attendance-checkbox'."
+  },
+  "instructions_to_main_agent": [
+    "Use pure React, Tailwind CSS, and Shadcn UI.",
+    "Strictly adhere to the dark midnight purple palette. Do NOT use default gray/white cards.",
+    "Install and use @phosphor-icons/react for all icons.",
+    "For the dashboard metrics, use Shadcn Charts or Recharts styled with the primary/accent colors.",
+    "Ensure the dashboard navigation is always visible (no desktop hamburger menus).",
+    "All forms MUST use Shadcn form components customized for dark mode.",
+    "DO NOT use the default teal/purple gradient for CTA. The primary action color MUST be #FFB800 (Amber/Gold) to contrast the purple.",
+    "Add 'data-testid' to every form input, button, and table row action.",
+    "DO NOT use standard rounded-xl or rounded-2xl. Use 'rounded-none' or at most 'rounded-sm' to maintain a sharp, technical, high-end admin feel."
+  ]
+}
